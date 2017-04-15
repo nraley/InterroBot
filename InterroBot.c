@@ -1,5 +1,3 @@
-//first draft written by Nelson
-
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -67,46 +65,48 @@ baseline()      {       //FUNCTION SHOULD ONLY BE USED ONCE... unless a new vict
 
     3.
 
+                  
     **DEACTIVATE REMOTE to prevent accidental button mashing.
-
+    
       a. Activate sensor. SEE GSR CODE FOR REFERENCE.
       b. Wait 2-5 seconds (2000-5000) for readings to stabilize. Reason? Don't want min to be 0.
       c. AFTER above wait, RECORD values for TEN seconds. DO NOT STORE IN ARRAY OR LIST. Instead, use if statements.
-
+      
        *** IF ARDUINO CAN'T PROCESS QUICKLY ENOUGH, try using an array/list and extracting the lowest/highest values.
        *** to save space, that list should be cleared after this method ends.
-
+       
           At first, set TEMPmin and TEMPmax to whatever the FIRST value received by GSR is.
-
+          
           TEMPmax = FIRSTval
           TEMPmin = FIRSTval
-
+          
           NEXT, use IF statements:
-
+          
           IF (CURRval > TEMPmax) // if the current value is greater than the temp. maximum...
               TEMPmax = CURRval // then update the temp. maximum.
-
+              
           IF (CURRval < TEMPmin) // if the current value is less than the temp minimum...
                TEMPmin = CURRval // then update the temp. minimum.
-
+               
       4. After ten seconds, PAUSE GSR READING. Don't stop it--just pause.
-
+      
       5. Set the values. . .
-
+      
         TEMPavg = (TEMPmax + TEMPmin) / 2
-
+        
         MAXbase = TEMPmax
         MINbase = TEMPmin
         AVGbase = TEMPavg
-
+        
         ** MAKE SURE THEY HOLD OUTSIDE OF BASELINE METHOD'S SCOPE.
-
+        
         6. Power down LEDr (red LED)
-
+        
            digitalWrite(LEDr, LOW); // YAY, WE CAN MOVE ON.
-
+           
         7. RETURN TRUE. At this point, LEDb (blue LED) should be on.
-}
+}       
+
 vicResponse()   {       //** METHOD GOES HERE: VICRESPONSE.
     WAITING FOR VICTIM'S RESPONSE TO A QUESTION.
     SHOULD RETURN: TEMPavg
@@ -146,7 +146,6 @@ vicResponse()   {       //** METHOD GOES HERE: VICRESPONSE.
 
           IF (CURRval < TEMPmin) // if the current value is less than the temp minimum...
                TEMPmin = CURRval // then update the temp. minimum.
-               TEMPmin = CURRval // then update the temp. minimum.
 
      ****As soon as victim answers, press 1 on remote to end recording.
 
@@ -164,3 +163,4 @@ vicResponse()   {       //** METHOD GOES HERE: VICRESPONSE.
 main()  {
         return 0;
 }
+
