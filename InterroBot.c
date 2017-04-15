@@ -1,4 +1,4 @@
-//THIS IS A TEST by kash 
+//THIS IS A created by the Thai
 
 
 
@@ -167,5 +167,3 @@ main()  {
         return 0;
 }
 
-
-//KASH BETTER NOT HAVE CHANGED ANYTHING!!!!
